@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Final Project</title>
+	<!-- Always include D3 first. -->
+	<script src="js/libraries/d3.min.js"></script>
+	<script src="js/libraries/jquery.min.js"></script>
+	<script src="js/libraries/d3-tip.js"></script>
+
+	<!-- Include main.js, which is where all our code lives -->
+	<script src="js/values.js"></script>
+	<script src="js/axis-setup.js"></script>
+	<script src="js/animation-filter.js"></script>
+	<script src="js/initial-setup.js"x></script>
+	<script src="js/materialize.js"></script>
+	<script src="js/similarity-engine.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/materialize.css">
+
+	<!-- for the second view -->
+	<script src="js/bubbles/bubbles.js"></script>
+	<script src="js/bubbles/d3-transform.js"></script>
+	<script src="js/bubbles/extarray.js"></script>
+	<script src="js/bubbles/misc.js"></script>
+	<script src="js/bubbles/micro-observer.js"></script>
+	<script src="js/bubbles/microplugin.js"></script>
+	<script src="js/bubbles/bubble-chart.js"></script>
+	<script src="js/bubbles/lines.js"></script>
+	<script src="js/bubbles/central-click.js"></script>
+
+
+</head>
+<body>
+	<div class="">
+		<!-- row for selection and legend -->
+		<div class="row">
+			<!-- Y axis data selection, move this next to the y-axis so the axis label can just be the dropdown -->
+			<h2 class="center white-text light"> Do Official Awards even <span class="strong"> MATTER? </span></h2>
+			<!-- Legend will be added inside this element -->
+			<div id = "legend-container" class="col s3">
+			</div>
+		</div>
+
+		<!-- row for both views -->
+		<div class="row">
+
+			<div id="graph-container" class="col s12 m6">
+				<!-- Y axis data selection -->
+				<div id="select-container-y">
+					<select id="selection" onchange= "dropdownYChange(this.value)">
+						<option value = "# award nominations"># Total Award Nominations</option>
+						<option value = "gross ($)">Revenue</option>
+						<option value = "average rating">Average Rating</option>
+						<option value = "imdb rating">IMDB Rating</option>
+						<option value = "metascore">Metascore</option>
+						<option value = "# award wins"># of Award Wins</option>
+					</select>
+				</div>
+
+				<!-- Our graph will be added inside this divider element -->
+				<div id="graph"></div>
+
+				<div id="select-container-x">
+					<select id="selection" onchange="dropdownXChange(this.value)" data-dropup="true">
+						<option value = "average rating">Average Rating</option>
+						<option value = "imdb rating">IMDB Rating</option>
+						<option value = "metascore">Metascore</option>
+						<option value = "# award nominations"># Total Award Nominations</option>
+						<option value = "gross ($)">Revenue</option>
+						<option value = "# award wins"># of Award Wins</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="col s12 m6">
+				<div class="switch">
+					<label>
+						Hide filtered dots
+						<input type="checkbox" id="yearSwitch" onchange="showAllYearsClicked()" checked="checked">
+						<span class="lever"></span>
+						Show filtered dots
+					</label>
+				</div>
+				<hr/>
+				<span class="white-text light">Filter by Genre:</span>
+				<div id="genre-container"></div>
+				<!-- Switch -->
+				
+
+				<!-- Slider -->
+				<hr/>
+				<span class="white-text light">Filter by Year: <span id = "slider-text">2008</span>
+</span>
+				<div id = "slider-container">
+					<input id="year" type= "range" min= "2000" max="2015" onchange= "yearChange(this.value)" oninput= "document.getElementById('slider-text').innerHTML = this.value;"></input>
+				</div>
+
+				<div class="white-text light center" id="titleContainer"><span id='movieName'></span></div>
+
+				<div class="bubbleChart"></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

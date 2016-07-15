@@ -1,0 +1,283 @@
+html{
+  background-color: #202020;
+  overflow-y: hidden;
+}
+
+.bubbleChart {
+  min-width: 100px;
+  max-width: 600px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+.bubbleChart svg{
+  background: #202020;
+}
+
+#titleContainer{
+  margin-top:30px;
+}
+
+#select-container-y {
+    color: white;
+
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+
+    -webkit-transform-origin: left top;
+    -moz-transform-origin: left top;
+    -ms-transform-origin: left top;
+    -o-transform-origin: left top;
+    transform-origin: left top;
+
+    position:absolute;
+    top: 400px;
+
+    white-space: nowrap;
+
+}
+
+#select-container-x {
+    color: white;
+    display: inline;
+    position: relative;
+    left: 330px;
+    /*bottom: 15%;
+    left: 200px;
+    top: 90px;*/
+    white-space: nowrap;
+    font-size: 48px;
+
+}
+
+#slider-text{
+  margin-top: 0px;
+  margin-left: 215px;
+  color: #2BBBAD;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+#slider-container{
+
+}
+
+#graph{
+  margin-top: -70px;
+  margin-left: 20px;
+}
+
+.padCheckbox{
+  margin-right:17px;
+}
+
+.label{
+  color :#808080;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #808080;
+  shape-rendering: crispEdges;
+  color: #000;
+}
+
+.axis text{
+  fill: #808080;
+}
+
+
+.dot {
+  /*stroke: #a6a6a6;*/
+}
+
+.tooltip {
+  background: #fff;
+  color: #202020;
+  border-radius: 5px;
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+  text-align: left;
+  opacity: .25;
+}
+
+/* d3 tooltip */
+
+.d3-tip {
+  line-height: 1.5;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+
+.wrap {
+  width: 1050px;
+  margin: 0 auto 0;
+}
+
+/***************
+      Range
+***************/
+.range-field {
+  position: relative; }
+
+input[type=range], input[type=range] + .thumb {
+  cursor: pointer; }
+
+input[type=range] {
+  position: relative;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+  margin: 0px 0px;
+  padding: 0; }
+
+input[type=range] + .thumb {
+  display: none;
+  border: none;
+  height: 0;
+  width: 0;
+  border-radius: 50%;
+  background-color: #26a69a;
+  top: 10px;
+  margin-left: -6px;
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg); }
+  input[type=range] + .thumb .value {
+    display: block;
+    width: 30px;
+    text-align: center;
+    color: #26a69a;
+    font-size: 0;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg); }
+  input[type=range] + .thumb.active {
+    border-radius: 50% 50% 50% 0; }
+    input[type=range] + .thumb.active .value {
+      color: #fff;
+      margin-left: -1px;
+      margin-top: 8px;
+      font-size: 10px; }
+
+input[type=range]:focus {
+  outline: none; }
+
+input[type=range] {
+  -webkit-appearance: none; }
+
+input[type=range]::-webkit-slider-runnable-track {
+  height: 3px;
+  background: #c2c0c2;
+  border: none; }
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background-color: #26a69a;
+  transform-origin: 50% 50%;
+  margin: -5px 0 0 0;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition: 0.3s;
+  transition: 0.3s; }
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #ccc;
+}
+
+input[type=range] {
+  /* fix for FF unable to apply focus style bug  */
+  border: 1px solid #303032;
+  /*required for proper track sizing in FF*/ }
+
+input[type=range]::-moz-range-track {
+  height: 3px;
+  background: #ddd;
+  border: none; }
+
+input[type=range]::-moz-range-thumb {
+  border: none;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background: #26a69a;
+  margin-top: -5px; }
+
+/*hide the outline behind the border*/
+input[type=range]:-moz-focusring {
+  outline: 1px solid white;
+  outline-offset: -1px; }
+
+input[type=range]:focus::-moz-range-track {
+  background: #ccc; }
+
+input[type=range]::-ms-track {
+  height: 3px;
+  /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
+  background: transparent;
+  /*leave room for the larger thumb to overflow with a transparent border */
+  border-color: transparent;
+  border-width: 6px 0;
+  /*remove default tick marks*/
+  color: transparent; }
+
+input[type=range]::-ms-fill-lower {
+  background: #777; }
+
+input[type=range]::-ms-fill-upper {
+  background: #ddd; }
+
+input[type=range]::-ms-thumb {
+  border: none;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background: #26a69a; }
+
+input[type=range]:focus::-ms-fill-lower {
+  background: #888; }
+
+input[type=range]:focus::-ms-fill-upper {
+  background: #ccc; }
